@@ -9,7 +9,15 @@
 import pickle
 import os
 from get_yeild_curve import *
-
+#全部のリストをつなげる(このページで取得するものはflattened_codes=企業コードで終了)
+with open('pickle/securities_codes.pickle', 'rb') as f:
+            existing_data = pickle.load(f)
+if existing_data[0] :
+    del existing_data[0]
+else:
+    pass
+#flatyeild_urls.pyとflatclosing_urls.pyで読み込まれる（使われる）
+flattened_codes = list(itertools.chain(*existing_data.values()))
 
 yeild_dict = {}
 

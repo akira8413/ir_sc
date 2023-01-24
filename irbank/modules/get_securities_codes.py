@@ -58,13 +58,13 @@ def get_securities_codes(start_page, end_page):
     securities_codes = [d['証券コード'] for d in dd_list]
     #csvに保存まだ更新はできず追加しかされない
     new_data=pd.DataFrame(dd_list)
-    if os.path.exists('csv/20230122ranking.csv'):
-                df=pd.read_csv('csv/20230122ranking.csv')
+    if os.path.exists('csv/20230123ranking.csv'):
+                df=pd.read_csv('csv/20230123ranking.csv')
                 df=pd.concat([df, new_data], ignore_index=True)
                 
     else:
         df=new_data
-    df.to_csv('csv/20230122ranking.csv',index=None,encoding='utf-8-sig')
+    df.to_csv('csv/20230123ranking.csv',index=None,encoding='utf-8-sig')
 
     return securities_codes
 
